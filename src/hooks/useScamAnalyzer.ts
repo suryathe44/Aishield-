@@ -22,17 +22,21 @@ export const useScamAnalyzer = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/analyze-message`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-          },
-          body: JSON.stringify({ message }),
-        }
-      );
+  "https://aishield-dagd.onrender.com",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      message: message,
+    }),
+  }
+);
 
+      
+
+    
       const data = await response.json();
 
       if (!response.ok) {
@@ -81,3 +85,4 @@ export const useScamAnalyzer = () => {
     reset,
   };
 };
+
